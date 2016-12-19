@@ -1,10 +1,18 @@
 package com.brainmatics.aplikasi.pendaftaran.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Siswa implements Serializable {
@@ -13,6 +21,18 @@ public class Siswa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @NotNull @NotEmpty
+    @Column(unique = true)
+    private String nama;
+    
+    @NotNull @NotEmpty @Email
+    private String email;
+    
+    @NotNull @Past
+    @Column(name = "tanggal_lahir")
+    @Temporal(TemporalType.DATE)
+    private Date tanggalLahir;
 
     public Long getId() {
         return id;
@@ -21,6 +41,32 @@ public class Siswa implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public void setTanggalLahir(Date tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+    
+    
 
     @Override
     public int hashCode() {
