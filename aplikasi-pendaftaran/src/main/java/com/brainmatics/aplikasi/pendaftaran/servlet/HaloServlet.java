@@ -15,8 +15,11 @@ public class HaloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Date sekarang = new Date();
         
+        String nama = req.getParameter("nama");
+        
         resp.setContentType("text/html");
-        resp.getWriter().println("<b>"+sekarang.toString()+"</b>");
+        resp.getWriter().println("<b>Halo "+nama+"</b><br>");
+        resp.getWriter().println("<b>Waktu saat ini : "+sekarang.toString()+"</b>");
         resp.getWriter().flush();
     }
     
