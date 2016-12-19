@@ -23,3 +23,7 @@ Java EE 7 Server menyediakan berbagai layanan/fitur, diantaranya:
 * Java Transaction Service (JTS) : untuk mengurus database transaction
 * Java Messaging Service (JMS) : mengurus messaging antar aplikasi dengan protokol JMS.
 
+Arsitektur Aplikasi JEE
+
+![Arsitektur Aplikasi JEE](catatan/img/arsitektur-aplikasi-jee.jpg)
+
