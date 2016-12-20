@@ -12,7 +12,21 @@
          
          <h:form>
              
-             <p:commandButton value="Simpan Data" action="list?faces-redirect=true"/>
+             <h:panelGrid columns="3">
+                 <h:outputLabel for="kode" value="Kode Sekolah"/>
+                 <h:inputText id="kode" value="#{sekolahView.sekolah.kode}"/>
+                 <h:message for="kode"/>
+                 
+                 <h:outputLabel for="nama" value="Nama Sekolah"/>
+                 <h:inputText id="nama" value="#{sekolahView.sekolah.nama}"/>
+                 <h:message for="nama"/>
+                 
+                 <h:outputLabel for="alamat" value="Alamat Sekolah"/>
+                 <h:inputText id="alamat" value="#{sekolahView.sekolah.alamat}"/>
+                 <h:message for="alamat"/>
+             </h:panelGrid>
+             
+             <p:commandButton value="Simpan Data" action="#{sekolahView.simpan()}"/>
              
          </h:form>
          
