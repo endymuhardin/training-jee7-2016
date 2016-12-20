@@ -11,6 +11,9 @@
         <ui:composition>
 
             <p:tieredMenu style="width:150px">
+                <p:submenu label="Sekolah" icon="ui-icon-refresh">
+                    <p:menuitem value="Data Sekolah" icon="ui-icon-disk" action="/sekolah/list?faces-redirect=true" />
+                </p:submenu>
                 <p:submenu label="Peserta" icon="ui-icon-refresh">
                     <p:menuitem value="Tambah Peserta" icon="ui-icon-disk" url="http://www.prime.com.tr" />
                     <p:menuitem value="Daftar Peserta" icon="ui-icon-arrowrefresh-1-w" url="http://www.prime.com.tr" />
