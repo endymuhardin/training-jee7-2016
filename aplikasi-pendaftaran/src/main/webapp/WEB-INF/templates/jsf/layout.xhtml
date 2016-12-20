@@ -6,6 +6,20 @@
      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
+        <style type="text/css">
+            .ui-layout-west {
+                z-index:20 !important;
+                overflow:visible !important;;
+            }
+
+            .ui-layout-west .ui-layout-unit-content {
+                overflow:visible !important;
+            }
+            
+            body {
+                background-color: #FFFFFF;
+            }
+        </style>
     </h:head>
     <h:body>
         <p:layout fullPage="true">
@@ -19,7 +33,9 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="west" size="200" resizable="true" collapsible="true">
-                <h:outputText value="West unit content." />
+                <h:form>
+                    <ui:include src="/WEB-INF/templates/jsf/menu-kiri.xhtml"/>
+                </h:form>
             </p:layoutUnit>
 
             <p:layoutUnit position="east" size="200" resizable="true" closable="true" collapsible="true" effect="drop">
