@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
     <head>
         <title>Daftar Sekolah</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
+        <section layout:fragment="content">
         <h1>Daftar Sekolah</h1>
         
-        <table border="0">
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Kode</th>
@@ -31,6 +34,6 @@
             </tbody>
         </table>
 
-        
+        </section>
     </body>
 </html>
