@@ -49,7 +49,7 @@ CREATE TABLE pilihan (
 
 CREATE TABLE hasil_ujian (
   id varchar(255) NOT NULL,
-  lulus bit(1) DEFAULT NULL,
+  lulus boolean DEFAULT NULL,
   nilai decimal(19,2) DEFAULT NULL,
   tanggal_ujian date NOT NULL,
   id_siswa varchar(255) NOT NULL,
