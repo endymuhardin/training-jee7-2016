@@ -12,6 +12,13 @@
         <section layout:fragment="content">
         <h1>Daftar Sekolah</h1>
         
+        <a href="#" th:href="@{/sekolah/form}" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Tambah Data Sekolah
+        </a>
+        
+        <br /><br />
+        
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -27,8 +34,14 @@
                     <td th:text="${s.nama}">Sekolah 99</td>
                     <td th:text="${s.alamat}">Bogor</td>
                     <td>
-                        <a href="#" th:href="@{/sekolah/form(id=${s.id})}">edit</a>
-                        <a href="#" th:href="@{/sekolah/delete(id=${s.id})}">hapus</a>
+                        <a href="#" th:href="@{/sekolah/form(id=${s.id})}" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            edit
+                        </a>
+                        <a href="#" th:href="@{/sekolah/delete(id=${s.id})}" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            hapus
+                        </a>
                     </td>
                 </tr>
             </tbody>
