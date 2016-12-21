@@ -16,6 +16,7 @@ import javax.validation.constraints.Past;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity @Table(name = "siswa")
 public class Siswa implements Serializable {
@@ -32,6 +33,7 @@ public class Siswa implements Serializable {
     @Column(unique = true)
     private String email;
     
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @NotNull @Past
     @Column(name = "tanggal_lahir")
     @Temporal(TemporalType.DATE)
