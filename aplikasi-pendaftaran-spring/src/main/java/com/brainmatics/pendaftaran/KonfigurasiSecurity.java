@@ -13,17 +13,17 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("endy").password("123").roles("USER");
+                .withUser("endy").password("123").roles("USER").and()
+                .withUser("adi").password("123").roles("ADMIN");
     }
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-	http
-		.authorizeRequests()
-                    .anyRequest().authenticated()
-                    .and()
-		.formLogin()
+        http
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
                 .and().logout();
+    }
 }
-}
-
