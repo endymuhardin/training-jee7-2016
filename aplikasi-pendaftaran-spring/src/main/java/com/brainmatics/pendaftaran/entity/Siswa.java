@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -21,9 +21,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Siswa implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Id @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
     
     @NotNull @NotEmpty
     private String nama;
@@ -42,13 +42,23 @@ public class Siswa implements Serializable {
     @JoinColumn(name = "id_sekolah_asal")
     private Sekolah asalSekolah;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
+
+    public Sekolah getAsalSekolah() {
+        return asalSekolah;
+    }
+
+    public void setAsalSekolah(Sekolah asalSekolah) {
+        this.asalSekolah = asalSekolah;
+    }
+
+    
 
     public String getNama() {
         return nama;

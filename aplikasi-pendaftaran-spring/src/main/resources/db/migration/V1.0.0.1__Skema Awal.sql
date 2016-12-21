@@ -8,7 +8,7 @@ CREATE TABLE sekolah (
 ) ;
 
 CREATE TABLE siswa (
-  id bigint(20) NOT NULL AUTO_INCREMENT,
+  id varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
   nama varchar(255) NOT NULL,
   tanggal_lahir date NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE hasil_ujian (
   lulus bit(1) DEFAULT NULL,
   nilai decimal(19,2) DEFAULT NULL,
   tanggal_ujian date NOT NULL,
-  id_siswa bigint(20) NOT NULL,
+  id_siswa varchar(255) NOT NULL,
   id_soal varchar(255) DEFAULT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (id_siswa) REFERENCES siswa (id),
