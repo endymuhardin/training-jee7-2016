@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -23,5 +24,15 @@ public class SekolahController {
     @RequestMapping("/sekolah/list")
     public ModelMap dataSekolahHtml(Pageable page){
         return new ModelMap("daftarSekolah", sekolahDao.findAll(page));
+    }
+    
+    @RequestMapping(value = "/sekolah/form", method = RequestMethod.GET)
+    public ModelMap tampilkanForm(){
+        return new ModelMap();
+    }
+    
+    @RequestMapping(value = "/sekolah/form", method = RequestMethod.POST)
+    public String prosesForm(){
+        return "redirect:list";
     }
 }
