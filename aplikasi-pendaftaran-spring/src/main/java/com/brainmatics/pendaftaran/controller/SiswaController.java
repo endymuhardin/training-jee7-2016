@@ -7,6 +7,7 @@ import com.brainmatics.pendaftaran.entity.Siswa;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,7 @@ public class SiswaController {
         return sekolahDao.findAll();
     }
     
+    @PreAuthorize("isAuthenticated()")
     @RequestMapping(value = "/siswa/form", method = RequestMethod.GET)
     public ModelMap tampilkanForm(@RequestParam(required = false, value = "id")Siswa s){
         if(s == null){
@@ -35,6 +37,7 @@ public class SiswaController {
         return new ModelMap(s);
     }
     
+    @PreAuthorize("isAuthenticated()")
     @RequestMapping(value = "/siswa/form", method = RequestMethod.POST)
     public String prosesForm(@ModelAttribute @Valid Siswa s, BindingResult errors, @RequestParam("foto") MultipartFile file){
         if(errors.hasErrors()){

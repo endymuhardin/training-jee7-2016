@@ -11,7 +11,7 @@
             <h1>Edit Siswa</h1>
 
 
-            <form class="form-horizontal" method="post" th:object="${siswa}" enctype="multipart/form-data">
+            <form class="form-horizontal" th:action="form" method="post" th:object="${siswa}" enctype="multipart/form-data">
                 <div class="form-group"  th:classappend="${#fields.hasErrors('nama')} ? 'has-error'">
                     <label for="nama" class="col-sm-2 control-label">Nama</label>
                     <div class="col-sm-10">
