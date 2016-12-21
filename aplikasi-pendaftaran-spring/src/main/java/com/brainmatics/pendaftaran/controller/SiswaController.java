@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class SiswaController {
@@ -35,11 +36,24 @@ public class SiswaController {
     }
     
     @RequestMapping(value = "/siswa/form", method = RequestMethod.POST)
-    public String prosesForm(@ModelAttribute @Valid Siswa s, BindingResult errors){
+    public String prosesForm(@ModelAttribute @Valid Siswa s, BindingResult errors, @RequestParam("foto") MultipartFile file){
         if(errors.hasErrors()){
             return "/siswa/form";
         }
+        
+        prosesFoto(file);
+        
         siswaDao.save(s);
         return "redirect:list";
+    }
+    
+    private void prosesFoto(MultipartFile file){
+        // tampilkan informasi tentang file
+        System.out.println("Ukuran file : "+file.getSize());
+        System.out.println("Tipe file : " +file.getContentType());
+        System.out.println("Nama file : "+file.getOriginalFilename());
+        
+        // pindahkan ke tempat yang lebih sesuai
+        // misalnya : file server, Amazon S3, Dropbox, CDN, dsb
     }
 }
